@@ -1,0 +1,101 @@
+﻿@model IEnumerable<QT.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+<script>
+    window.onload = function () {
+        setInterval(function () {
+            window.location.reload()
+        }, 600000)
+    }
+</script>
+<p>
+</p><div id="TitleArea">
+    <div id="TitleArea_Head"></div>
+    <div id="TitleArea_Title">
+        <div id="TitleArea_Title_Content">
+            <img border="0" width="13" height="13"
+                 src="style/images/title_arrow.gif" /> 餐厅订单列表
+        </div>
+    </div>
+    <div id="TitleArea_End"></div>
+</div>
+
+<!-- 主内容区域（数据列表或表单显示） -->
+<div id="MainArea">
+    <table class="MainArea_Content" align="center" cellspacing="0" cellpadding="0">
+        <!-- 表头-->
+        <thead>
+            <tr align="center" valign="middle" id="TableTitle">
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.phone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalParse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ISOut)
+                </th>
+                <th>
+                   
+                </th>
+            </tr>
+        </thead>
+        <!--显示数据列表 -->
+        <tbody id="TableData">
+            @foreach (var item in Model)
+            {
+                <tr align="center" height="60">
+                    <td >
+                        @Html.DisplayFor(modelItem => item.OrderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalParse)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @if (item.ISOut)
+                        {
+                            <span>已付款</span>
+                        }
+                        else
+                        {
+                            <span>未付款</span>
+                        }
+                        @*@Html.DisplayFor(modelItem => item.ISOut)*@
+                    </td>
+                    <td>
+                        <a href="/orderLists/Index?id=@item.OrderID" class="FunctionButton">详情</a>
+                        <a href="/orders/ZH?id=@item.OrderID" class="FunctionButton">追回</a>
+
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })*@
+                    </td>
+                </tr>
+            }
+
+    </table>
+    <!-- 其他功能超链接 -->
+    <div id="TableTail" align="center">
+        <div class="FunctionButton">
+            @*<a href="/FoodTypes/Create">添加</a>*@
+            <a href=@Url.Action("Index")>未付款列表</a>
+        </div>
+    </div>
+</div>

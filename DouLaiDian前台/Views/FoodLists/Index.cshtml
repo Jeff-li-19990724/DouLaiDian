@@ -1,0 +1,121 @@
+﻿@model IEnumerable<QT.FoodList>
+@*@using PagedList
+@using PagedList.Mvc*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+
+<div id="TitleArea">
+    <div id="TitleArea_Head"></div>
+    <div id="TitleArea_Title">
+        <div id="TitleArea_Title_Content">
+            <img border="0" width="13" height="13" src="../style/images/title_arrow.gif" /> 菜品列表
+        </div>
+    </div>
+    <div id="TitleArea_End"></div>
+</div>
+
+<script>
+    $(function () {
+        var obj = document.getElementById("FoodTypeID");
+        obj.options.add(new Option('全部数据 ', 0));
+        var myselect = document.querySelector('#FoodTypeID');
+        myselect.value = '0';
+
+        //alert("页面加载完成！");
+    });
+</script>
+<!-- 过滤条件 -->
+<div id="QueryArea">
+    <form action="/FoodLists/index" method="post">
+        <input type="text" name="FoodName" title="请输入菜品名称">
+        @Html.DropDownList("FoodTypeID", null, htmlAttributes: new { @class = "form-control", @style = "width:200px", @required = "" })*
+        <input type="submit" value="搜索">
+    </form>
+</div>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<div id="MainArea">
+    <table class="MainArea_Content" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr align="center" valign="middle" id="TableTitle">
+
+                <th>
+                    <span>菜品编号</span>
+                </th>
+
+                <th>
+                    <span>菜品名称</span>
+                </th>
+                <th>
+                    <span>菜系分类</span>
+                </th>
+                <th>
+                    <span>单价</span>
+                </th>
+                <th>
+                    <span>样板图</span>
+                </th>
+                <th align="left" style="margin-left:15px">
+
+                </th>
+            </tr>
+        </thead>
+        <tbody id="TableData">
+            @foreach (var item in Model)
+            {
+                <tr class="TableDetail1" align="center">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FoodID)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.FoodName)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.FoodType.FoodTypeName)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.Price)<span>元</span>
+                    </td>
+                    <td align="center">
+                        <img src=@item.imageUrl height="100" width="100" />
+                    </td>
+                    <td align="center" style="text-align:center">
+                        <a href="/Foodlists/edit?id=@item.FoodID" class="FunctionButton">修改数据</a>
+                        @*  <a href="/Foodlists/Details?id=@item.FoodID" class="FunctionButton">详情</a>*@
+                        <a href="/Foodlists/Delete?id=@item.FoodID" class="FunctionButton" onclick="return confirm('确认删除？')">删除</a>
+                        @*                   @Html.ActionLink("Edit", "Edit", new { id = item.FoodID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.FoodID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.FoodID })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @*<div style="text-align:center">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page, FoodName = ViewBag.FN }),
+        new PagedListRenderOptions
+        {
+            LinkToFirstPageFormat = "首页",
+            LinkToPreviousPageFormat = "上一页",
+            LinkToNextPageFormat = "下一页",
+            LinkToLastPageFormat = "尾页",
+            MaximumPageNumbersToDisplay = 15,
+        }
+        )
+    </div>*@
+
+
+    <div id="TableTail" align="center">
+        <div class="FunctionButton">
+            @*<a href="/FoodTypes/Create">添加</a>*@
+            <a href=@Url.Action("Create")>添加</a>
+
+        </div>
+    </div>
+</div>

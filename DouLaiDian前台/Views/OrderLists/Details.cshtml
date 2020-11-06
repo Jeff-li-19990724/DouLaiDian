@@ -1,0 +1,51 @@
+﻿@model QT.OrderList
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.order.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foodname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foodname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,111 @@
+﻿@model QT.FoodType
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../style/js/jquery.js"></script>
+<script type="text/javascript" src="../style/js/page_common.js"></script>
+<link href="../style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../style/css/index_1.css" />
+<h2></h2>
+
+<div id="TitleArea">
+    <div id="TitleArea_Head"></div>
+    <div id="TitleArea_Title">
+        <div id="TitleArea_Title_Content">
+
+
+
+            <img border="0" width="13" height="13" src="style/images/title_arrow.gif" />  添加菜系
+
+
+        </div>
+    </div>
+    <div id="TitleArea_End"></div>
+</div>
+<div id="MainArea">
+    <!-- 表单内容 -->
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <!-- 本段标题（分段标题） -->
+        <div class="ItemBlock_Title">
+            <img width="4" height="7" border="0" src="style/images/item_point.gif"> 菜系信息&nbsp;
+        </div>
+        <!-- 本段表单字段 -->
+        <div class="ItemBlockBorder">
+            <div class="ItemBlock">
+                <div class="ItemBlock2">
+                    <table cellpadding="0" cellspacing="0" class="mainForm">
+                        <tr>
+                            <td width="80px">菜系名称</td>
+                            <td>
+                                @Html.EditorFor(model => model.FoodTypeName, new { htmlAttributes = new { @class = "InputStyle", @required = "" } }) *
+                                @Html.ValidationMessageFor(model => model.FoodTypeName, "", new { @class = "text-danger" })
+                                @*<input type="text" name="name" class="InputStyle" value="" />
+                                <input type="hidden" name="cid" value="" />*@
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="80px">菜系描述</td>
+                            <td>
+                                @Html.EditorFor(model => model.describe, new { htmlAttributes = new { @class = "InputStyle" } })
+                                @*@Html.ValidationMessageFor(model => model.describe, "", new { @class = "text-danger" })*@
+                                @*@Html.EditorFor(model => model.FoodTypeName, new { htmlAttributes = new { @class = "InputStyle" } }) *
+                                @Html.ValidationMessageFor(model => model.FoodTypeName, "", new { @class = "text-danger" })*@
+                                @*<input type="text" name="name" class="InputStyle" value="" />
+        <input type="hidden" name="cid" value="" />*@
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 表单操作 -->
+        <div id="InputDetailBar">
+            <input type="submit" value="添加" class="FunctionButtonInput">
+
+
+            <a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
+        </div>
+    }
+
+    </div>
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>FoodType</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodTypeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+            
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.describe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}*@
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@

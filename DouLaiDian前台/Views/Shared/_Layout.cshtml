@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>逗睐殿餐后台管理</title>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <script type="text/javascript" src="../style/js/jquery.js"></script>
+    <script type="text/javascript" src="../style/js/page_common.js"></script>
+    <link href="../style/css/common_style_blue.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+
+        body {
+            margin: 0;
+        }
+
+        #Head_1 {
+            background: url("../style/images/img/top_head1_bg.gif") repeat-x scroll 0 0 transparent;
+            height: 64px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+            #Head_1 #Head_1_Logo {
+                float: left;
+                left: 20px;
+                position: absolute;
+                top: 12px;
+                color: cornsilk;
+                font-family: Arial Black,Arial;
+                font-size: 28px;
+            }
+
+            #Head_1 #Head_1_UserWelcome {
+                float: right;
+                color: #B3E1FF;
+                font-family: "宋体";
+                font-size: 12px;
+                height: 25px;
+                padding-top: 11px;
+                margin-right: 20px;
+            }
+
+            #Head_1 #Head_1_FunctionButton {
+                float: left;
+                position: absolute;
+                right: 5px;
+                top: 35px;
+                margin-right: 15px;
+            }
+
+                #Head_1 #Head_1_FunctionButton img {
+                    margin-left: 10px;
+                }
+
+        #Head_2 {
+            background: url("../style/images/img/top_head2_bg.gif") repeat-x scroll 0 0 transparent;
+            border-bottom: 1px solid #FFFFFF;
+            border-top: 1px solid #A0C6E1;
+            height: 36px;
+            margin: 0;
+            width: 100%;
+        }
+
+            #Head_2 #Head2_Awoke {
+                float: left;
+                height: 100%;
+                padding-left: 19px;
+                padding-top: 2px;
+            }
+
+                #Head_2 #Head2_Awoke #AwokeNum {
+                    position: absolute;
+                    left: 20px;
+                    top: 68px;
+                    width: 406px;
+                    /*height: 21px;*/
+                    margin-top: 0;
+                    padding: 0;
+                    padding-top: 2px;
+                    list-style-type: none;
+                    margin-bottom: 0;
+                    margin-left: 0;
+                }
+
+                    #Head_2 #Head2_Awoke #AwokeNum li {
+                        float: left;
+                        margin: 3px;
+                        display: inline;
+                    }
+
+                    #Head_2 #Head2_Awoke #AwokeNum a {
+                        color: #FFFFFF;
+                        font-family: "宋体";
+                        font-size: 12px;
+                        text-decoration: none;
+                    }
+
+                    #Head_2 #Head2_Awoke #AwokeNum .Line {
+                        border-left: 1px solid #005A98;
+                        border-right: 1px solid #A0C6E1;
+                        height: 17px;
+                        width: 0px;
+                    }
+
+            #Head_2 #Head2_FunctionList, .Head2_FunctionList {
+                color: #FFFFFF;
+                float: right;
+                font-family: "宋体";
+                font-size: 13px;
+                height: 100%;
+                padding-right: 26px;
+                padding-top: 10px;
+            }
+    </style>
+    <script type="text/javascript" src="../style/js/jquery.js"></script>
+    <script type="text/javascript" src="../style/js/page_common.js"></script>
+    <link href="../style/css/common_style_blue.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        // 显示或隐藏二级菜单
+        function menuClick(menuDiv) {
+            $(".MenuLevel2").not($(menuDiv).next()).hide();
+            $(menuDiv).next().toggle();
+        }
+
+        $(function () {
+            // 默认只显示第1个二级菜单
+            $(".MenuLevel2").hide();
+            $(".MenuLevel2:first").show();
+        });
+    </script>
+    <!-- 内容总宽度为 3px边框 * 2 + 155px内容 = 161px; -->
+    <style type="text/css">
+        html {
+            height: 1000px;
+        }
+
+        body {
+            background: none repeat scroll 0 0 #D8EDFC;
+            margin: 0;
+            padding: 0;
+        }
+
+        #Menu {
+            margin: 0;
+            padding: 0;
+            width: 155px;
+            background: none repeat scroll 0 0 #D8EBF7;
+            list-style: none outside none;
+            margin-left: 3px;
+            border-top: 3px solid #4891C6;
+        }
+
+        #Menu {
+            height: 100%;
+            width: 155px;
+            text-align: left;
+            float: left;
+            color: cornsilk;
+            margin-left: 0px;
+        }
+
+            #Menu .level1 {
+                color: #005790;
+                font-weight: bold;
+                padding-bottom: 1px;
+                cursor: pointer;
+            }
+
+                #Menu .level1 .level1Style {
+                    background: url("../style/images/img/menu_btn_bg.gif") no-repeat scroll 0 0 transparent;
+                    height: 23px;
+                    padding-left: 20px;
+                    padding-top: 5px;
+                    width: 135px;
+                    margin-bottom: -4px
+                }
+
+                    #Menu .level1 .level1Style .Icon {
+                        margin-top: -2px;
+                    }
+
+                #Menu .level1 .MenuLevel2 {
+                    background: none repeat scroll 0 0 #D8EBF7;
+                    list-style: none outside none;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                    #Menu .level1 .MenuLevel2 .level2Style {
+                        color: #005790;
+                        font-weight: normal;
+                        border-top: 1px solid #EFF6FB;
+                        height: 18px;
+                        padding-left: 43px;
+                        padding-top: 5px;
+                        width: 112px;
+                        background-image: url(../style/images/img/menu_arrow_single.gif);
+                        background-color: cornsilk;
+                        background-repeat: no-repeat;
+                        background-position: 29px center;
+                    }
+    </style>
+</head>
+<body>
+    <div class="container body-content">
+        <!-- 上部 -->
+        <div id="Head_1">
+            <!-- 标题 -->
+            <div id="Head_1_Logo">
+                <a target="_Self" href=@Url.Action("Index","Home") >
+                    <img src="../style/images/u=3261562696,3427771316&fm=26&gp=0.png" alt="Logo" height="65" style="margin-top:-5px" />
+                </a>
+                <b style="font-family: '黑体'">荚厢财逗睐殿点餐平台</b>
+                <!-- <img border="0" src="style/images/logo.png" /> -->
+            </div>
+            <!-- 欢迎用户的文字 -->
+            <div id="Head_1_UserWelcome">
+                <img border="0" width="13" height="14" src="../style/images/user.gif" />
+                您好，<b>欢迎来到家乡菜</b>
+            </div>
+            <!-- 一些链接按钮 -->
+            <div id="Head_1_FunctionButton">
+                <a target="right" href="javascript:void(0)">
+                    <img width="78" height="20" src="../style/images/help2.gif" />
+                </a>
+                <a target="_parent" href="javascript:void(0)">
+                    <img width="78" height="20" alt="退出系统" src="../style/images/logout.gif" />
+                </a>
+            </div>
+        </div>
+        <!-- 下部 -->
+        <div id="Head_2">
+            <!-- 任务提醒 -->
+            <div id="Head2_Awoke">
+                <ul id="AwokeNum">
+                </ul>
+            </div>
+
+            <div class="Head2_FunctionList" style="float:left">
+                <a href="javascript:history.go(-1);">
+
+                    <img src="../style/images/Header_back.gif" width="24" height="24" style="margin-top: -8px;" />
+                    <b>后退</b>
+                </a>
+                <a href="javascript: history.forward();">
+                    <img src="../style/images/Header_forward.gif" width="24" height="24" style="margin-top: -8px;" />
+                    <b>前进</b>
+                </a>
+            </div>
+
+            <div id="Head2_FunctionList">
+                <!--
+                如果使用 window.parent.right.location.reload(true); 则IE与FF都可以使用，Chrome不可以。
+                在Chrome中 alert(window.parent.right.document); 显示的值是 undefined！为什么？
+                使用 window.parent.right.history.go(0) 实现刷新，在IE、Chrome中都可以运行，但在FF中不可以！（但没有测试什么时候会使用缓存）。
+             -->
+                <a href="javascript:location.reload();">
+                   
+                    <img src="../style/images/Header_refresh.gif" width="24" height="24" style="margin-top: -8px;" />
+                    <b>刷新(IE、Chrome)</b>
+                </a>
+                <a href="javascript:location.reload(true);">
+                    @*<img src="../style/images/Header_refresh.gif" width="24" height="24" style="margin-top: -8px;" />
+                    <b>刷新(Firefox)</b>*@
+                </a>
+            </div>
+        </div>
+        <div style="min-height: 1000px;max-height:none">
+            <ul id="Menu" style="color:aliceblue">
+                <li class="level1">
+                    <div onClick="menuClick(this);" class="level1Style">
+                        <img src="../style/images/func20001.gif" class="Icon" />
+                        系统菜单
+                    </div>
+                    <ul class="MenuLevel2">
+                        <li class="level2 level2Style">
+                            @*@Html.ActionLink("餐桌管理", "Index", "FoodTables", new { @target = "_Self" })*@
+
+                            <a target="_Self" href="/FoodTables/Index">餐桌管理</a>
+                        </li>
+                        <li class="level2 level2Style">
+                            <a target="_Self" href=@Url.Action("Index","FoodTypes")>菜系管理</a>
+                            @*<a target="right" href="cuisineList">菜系管理</a>*@
+                        </li>
+                        <li class="level2 level2Style">
+                            <a target="_Self" href=@Url.Action("Index","FoodLists")>菜品管理</a>
+                         @*   <a target="right" href="foodList">菜品管理</a>*@
+                        </li>
+                        <li class="level2 level2Style">
+                            <a target="_Self" href=@Url.Action("Index","Orders")>餐厅订单</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div style="margin-left:155px;">
+                @RenderBody()
+            </div>
+        </div>
+        <div style="float:left">
+
+        </div>
+        <hr />
+
+    </div> 
+    <footer>
+        <p>&copy; @DateTime.Now.Year - 开发者：沈阳工学院人工智能研究中心负责人联合恒创软件科技专题研发 Time： 2020年度首次研发 Version ：1.0 ——荚厢财逗睐殿点餐平台</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

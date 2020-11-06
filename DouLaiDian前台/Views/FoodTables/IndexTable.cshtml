@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DouLaiDian前台.Controllers.reserve>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../style/js/jquery.js"></script>
+<script type="text/javascript" src="../style/js/page_common.js"></script>
+<link href="../style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../style/css/index_1.css" />
+<p>
+   
+</p>
+<div id="TitleArea">
+    <div id="TitleArea_Head"></div>
+    <div id="TitleArea_Title">
+        <div id="TitleArea_Title_Content">
+            <img border="0" width="13" height="13" src="../style/images/title_arrow.gif" /> 预定时刻表
+        </div>
+    </div>
+    <div id="TitleArea_End"></div>
+</div>
+
+
+<!-- 过滤条件 -->
+<div id="QueryArea">
+    @*@using(Html.BeginForm("Index", "FoodTables", FormMethod.Post))
+    {
+        <input type="hidden" name="method" value="search">
+        <input type="text" name="TableName" title="请输入餐桌名称">
+        <input type="submit" value="搜索">
+    }*@
+</div>
+<div id="MainArea">
+    <table class="MainArea_Content" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr align="center" valign="middle" id="TableTitle">
+                <th>
+                    @Html.DisplayNameFor(model => model.TableName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </th>
+            </tr>
+        </thead>
+        <tbody id="TableData">
+            @foreach (var item in Model)
+            {
+                <tr class="TableDetail1">
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.TableName)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div id="TableTail" align="center">
+       @* @Html.ActionLink("添加", "Create", "FoodTables", new { @class = "FunctionButton" } )*@
+       @* <div class="FunctionButton"><a href="saveBoard.html">添加</a></div>*@
+    </div>
+</div>

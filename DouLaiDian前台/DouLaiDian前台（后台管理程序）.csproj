@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C9BFF7AB-3825-4C11-A49A-82AC6E431F01}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DouLaiDian前台</RootNamespace>
+    <AssemblyName>DouLaiDian前台</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44316</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FoodListsController.cs" />
+    <Compile Include="Controllers\FoodTablesController.cs" />
+    <Compile Include="Controllers\FoodTypesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderListsController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006251436125_Q.cs" />
+    <Compile Include="Migrations\202006251436125_Q.designer.cs">
+      <DependentUpon>202006251436125_Q.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\MDF_DouLaiDianBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicClass\DESEncrypt.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="call2.gif" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="style\images\u=3261562696,3427771316&amp;fm=26&amp;gp=0.png" />
+    <Content Include="Views\FoodLists\style\css\common_style_blue.css" />
+    <Content Include="Views\FoodLists\style\css\img\button_bg.png" />
+    <Content Include="Views\FoodLists\style\css\img\inputPageHeadBg.gif" />
+    <Content Include="Views\FoodLists\style\css\img\pageNum_bg.png" />
+    <Content Include="Views\FoodLists\style\css\img\QueryArea_bg.png" />
+    <Content Include="Views\FoodLists\style\css\img\TableTail_bg.png" />
+    <Content Include="Views\FoodLists\style\css\img\TableTitle_bg.png" />
+    <Content Include="Views\FoodLists\style\css\img\title_bg.gif" />
+    <Content Include="Views\FoodLists\style\css\img\title_bg_end.gif" />
+    <Content Include="Views\FoodLists\style\css\img\title_bg_head.gif" />
+    <Content Include="Views\FoodLists\style\css\index_1.css" />
+    <Content Include="Views\FoodLists\style\images\baizhuoxia.jpg" />
+    <Content Include="Views\FoodLists\style\images\func20001.gif" />
+    <Content Include="Views\FoodLists\style\images\Header_back.gif" />
+    <Content Include="Views\FoodLists\style\images\Header_forward.gif" />
+    <Content Include="Views\FoodLists\style\images\Header_refresh.gif" />
+    <Content Include="Views\FoodLists\style\images\help2.gif" />
+    <Content Include="Views\FoodLists\style\images\img\menu_arrow_single.gif" />
+    <Content Include="Views\FoodLists\style\images\img\menu_btn_bg.gif" />
+    <Content Include="Views\FoodLists\style\images\img\top_head1_bg.gif" />
+    <Content Include="Views\FoodLists\style\images\img\top_head2_bg.gif" />
+    <Content Include="Views\FoodLists\style\images\info.gif" />
+    <Content Include="Views\FoodLists\style\images\item_point.gif" />
+    <Content Include="Views\FoodLists\style\images\logout.gif" />
+    <Content Include="Views\FoodLists\style\images\title_arrow.gif" />
+    <Content Include="Views\FoodLists\style\images\user.gif" />
+    <Content Include="Views\FoodLists\style\images\version.gif" />
+    <Content Include="Views\FoodLists\style\js\jquery.js" />
+    <Content Include="Views\FoodLists\style\js\page_common.js" />
+    <Content Include="Views\FoodTypes\style\css\common_style_blue.css" />
+    <Content Include="Views\FoodTypes\style\css\img\button_bg.png" />
+    <Content Include="Views\FoodTypes\style\css\img\inputPageHeadBg.gif" />
+    <Content Include="Views\FoodTypes\style\css\img\pageNum_bg.png" />
+    <Content Include="Views\FoodTypes\style\css\img\QueryArea_bg.png" />
+    <Content Include="Views\FoodTypes\style\css\img\TableTail_bg.png" />
+    <Content Include="Views\FoodTypes\style\css\img\TableTitle_bg.png" />
+    <Content Include="Views\FoodTypes\style\css\img\title_bg.gif" />
+    <Content Include="Views\FoodTypes\style\css\img\title_bg_end.gif" />
+    <Content Include="Views\FoodTypes\style\css\img\title_bg_head.gif" />
+    <Content Include="Views\FoodTypes\style\css\index_1.css" />
+    <Content Include="Views\FoodTypes\style\images\baizhuoxia.jpg" />
+    <Content Include="Views\FoodTypes\style\images\func20001.gif" />
+    <Content Include="Views\FoodTypes\style\images\Header_back.gif" />
+    <Content Include="Views\FoodTypes\style\images\Header_forward.gif" />
+    <Content Include="Views\FoodTypes\style\images\Header_refresh.gif" />
+    <Content Include="Views\FoodTypes\style\images\help2.gif" />
+    <Content Include="Views\FoodTypes\style\images\img\menu_arrow_single.gif" />
+    <Content Include="Views\FoodTypes\style\images\img\menu_btn_bg.gif" />
+    <Content Include="Views\FoodTypes\style\images\img\top_head1_bg.gif" />
+    <Content Include="Views\FoodTypes\style\images\img\top_head2_bg.gif" />
+    <Content Include="Views\FoodTypes\style\images\info.gif" />
+    <Content Include="Views\FoodTypes\style\images\item_point.gif" />
+    <Content Include="Views\FoodTypes\style\images\logout.gif" />
+    <Content Include="Views\FoodTypes\style\images\title_arrow.gif" />
+    <Content Include="Views\FoodTypes\style\images\user.gif" />
+    <Content Include="Views\FoodTypes\style\images\version.gif" />
+    <Content Include="Views\FoodTypes\style\js\jquery.js" />
+    <Content Include="Views\FoodTypes\style\js\page_common.js" />
+    <Content Include="Views\Home\detail\boardList.html" />
+    <Content Include="Views\Home\detail\cuisineList.html" />
+    <Content Include="Views\Home\detail\foodList.html" />
+    <Content Include="Views\Home\detail\orderDetail.html" />
+    <Content Include="Views\Home\detail\orderList.html" />
+    <Content Include="Views\FoodTables\Create.cshtml" />
+    <Content Include="Views\FoodTables\Index.cshtml" />
+    <Content Include="Views\FoodTypes\Create.cshtml" />
+    <Content Include="Views\FoodTypes\Delete.cshtml" />
+    <Content Include="Views\FoodTypes\Details.cshtml" />
+    <Content Include="Views\FoodTypes\Edit.cshtml" />
+    <Content Include="Views\FoodTypes\Index.cshtml" />
+    <Content Include="Views\FoodLists\Create.cshtml" />
+    <Content Include="Views\FoodLists\Delete.cshtml" />
+    <Content Include="Views\FoodLists\Details.cshtml" />
+    <Content Include="Views\FoodLists\Edit.cshtml" />
+    <Content Include="Views\FoodLists\Index.cshtml" />
+    <Content Include="Views\Home\detail\saveBoard.html" />
+    <Content Include="Views\Home\detail\saveCuisine.html" />
+    <Content Include="Views\Home\detail\saveFood.html" />
+    <Content Include="Views\Home\detail\style\css\common_style_blue.css" />
+    <Content Include="Views\Home\detail\style\css\img\button_bg.png" />
+    <Content Include="Views\Home\detail\style\css\img\inputPageHeadBg.gif" />
+    <Content Include="Views\Home\detail\style\css\img\pageNum_bg.png" />
+    <Content Include="Views\Home\detail\style\css\img\QueryArea_bg.png" />
+    <Content Include="Views\Home\detail\style\css\img\TableTail_bg.png" />
+    <Content Include="Views\Home\detail\style\css\img\TableTitle_bg.png" />
+    <Content Include="Views\Home\detail\style\css\img\title_bg.gif" />
+    <Content Include="Views\Home\detail\style\css\img\title_bg_end.gif" />
+    <Content Include="Views\Home\detail\style\css\img\title_bg_head.gif" />
+    <Content Include="Views\Home\detail\style\css\index_1.css" />
+    <Content Include="Views\Home\detail\style\images\baizhuoxia.jpg" />
+    <Content Include="Views\Home\detail\style\images\func20001.gif" />
+    <Content Include="Views\Home\detail\style\images\Header_back.gif" />
+    <Content Include="Views\Home\detail\style\images\Header_forward.gif" />
+    <Content Include="Views\Home\detail\style\images\Header_refresh.gif" />
+    <Content Include="Views\Home\detail\style\images\help2.gif" />
+    <Content Include="Views\Home\detail\style\images\img\menu_arrow_single.gif" />
+    <Content Include="Views\Home\detail\style\images\img\menu_btn_bg.gif" />
+    <Content Include="Views\Home\detail\style\images\img\top_head1_bg.gif" />
+    <Content Include="Views\Home\detail\style\images\img\top_head2_bg.gif" />
+    <Content Include="Views\Home\detail\style\images\info.gif" />
+    <Content Include="Views\Home\detail\style\images\item_point.gif" />
+    <Content Include="Views\Home\detail\style\images\logout.gif" />
+    <Content Include="Views\Home\detail\style\images\title_arrow.gif" />
+    <Content Include="Views\Home\detail\style\images\user.gif" />
+    <Content Include="Views\Home\detail\style\images\version.gif" />
+    <Content Include="Views\Home\detail\style\js\jquery.js" />
+    <Content Include="Views\Home\detail\style\js\page_common.js" />
+    <Content Include="Views\Home\detail\updateCuisine.html" />
+    <Content Include="Views\Home\detail\updateFood.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="style\css\common_style_blue.css" />
+    <Content Include="style\css\img\button_bg.png" />
+    <Content Include="style\css\img\inputPageHeadBg.gif" />
+    <Content Include="style\css\img\pageNum_bg.png" />
+    <Content Include="style\css\img\QueryArea_bg.png" />
+    <Content Include="style\css\img\TableTail_bg.png" />
+    <Content Include="style\css\img\TableTitle_bg.png" />
+    <Content Include="style\css\img\title_bg.gif" />
+    <Content Include="style\css\img\title_bg_end.gif" />
+    <Content Include="style\css\img\title_bg_head.gif" />
+    <Content Include="style\css\index_1.css" />
+    <Content Include="style\images\baizhuoxia.jpg" />
+    <Content Include="style\images\func20001.gif" />
+    <Content Include="style\images\Header_back.gif" />
+    <Content Include="style\images\Header_forward.gif" />
+    <Content Include="style\images\Header_refresh.gif" />
+    <Content Include="style\images\help2.gif" />
+    <Content Include="style\images\img\menu_arrow_single.gif" />
+    <Content Include="style\images\img\menu_btn_bg.gif" />
+    <Content Include="style\images\img\top_head1_bg.gif" />
+    <Content Include="style\images\img\top_head2_bg.gif" />
+    <Content Include="style\images\info.gif" />
+    <Content Include="style\images\item_point.gif" />
+    <Content Include="style\images\logout.gif" />
+    <Content Include="style\images\title_arrow.gif" />
+    <Content Include="style\images\user.gif" />
+    <Content Include="style\images\version.gif" />
+    <Content Include="style\js\jquery.js" />
+    <Content Include="style\js\page_common.js" />
+    <Content Include="Views\FoodTables\style\css\common_style_blue.css" />
+    <Content Include="Views\FoodTables\style\css\img\button_bg.png" />
+    <Content Include="Views\FoodTables\style\css\img\inputPageHeadBg.gif" />
+    <Content Include="Views\FoodTables\style\css\img\pageNum_bg.png" />
+    <Content Include="Views\FoodTables\style\css\img\QueryArea_bg.png" />
+    <Content Include="Views\FoodTables\style\css\img\TableTail_bg.png" />
+    <Content Include="Views\FoodTables\style\css\img\TableTitle_bg.png" />
+    <Content Include="Views\FoodTables\style\css\img\title_bg.gif" />
+    <Content Include="Views\FoodTables\style\css\img\title_bg_end.gif" />
+    <Content Include="Views\FoodTables\style\css\img\title_bg_head.gif" />
+    <Content Include="Views\FoodTables\style\css\index_1.css" />
+    <Content Include="Views\FoodTables\style\images\baizhuoxia.jpg" />
+    <Content Include="Views\FoodTables\style\images\func20001.gif" />
+    <Content Include="Views\FoodTables\style\images\Header_back.gif" />
+    <Content Include="Views\FoodTables\style\images\Header_forward.gif" />
+    <Content Include="Views\FoodTables\style\images\Header_refresh.gif" />
+    <Content Include="Views\FoodTables\style\images\help2.gif" />
+    <Content Include="Views\FoodTables\style\images\img\menu_arrow_single.gif" />
+    <Content Include="Views\FoodTables\style\images\img\menu_btn_bg.gif" />
+    <Content Include="Views\FoodTables\style\images\img\top_head1_bg.gif" />
+    <Content Include="Views\FoodTables\style\images\img\top_head2_bg.gif" />
+    <Content Include="Views\FoodTables\style\images\info.gif" />
+    <Content Include="Views\FoodTables\style\images\item_point.gif" />
+    <Content Include="Views\FoodTables\style\images\logout.gif" />
+    <Content Include="Views\FoodTables\style\images\title_arrow.gif" />
+    <Content Include="Views\FoodTables\style\images\user.gif" />
+    <Content Include="Views\FoodTables\style\images\version.gif" />
+    <Content Include="Views\FoodTables\style\js\jquery.js" />
+    <Content Include="Views\FoodTables\style\js\page_common.js" />
+    <Content Include="Views\style\css\common_style_blue.css" />
+    <Content Include="Views\style\css\img\button_bg.png" />
+    <Content Include="Views\style\css\img\inputPageHeadBg.gif" />
+    <Content Include="Views\style\css\img\pageNum_bg.png" />
+    <Content Include="Views\style\css\img\QueryArea_bg.png" />
+    <Content Include="Views\style\css\img\TableTail_bg.png" />
+    <Content Include="Views\style\css\img\TableTitle_bg.png" />
+    <Content Include="Views\style\css\img\title_bg.gif" />
+    <Content Include="Views\style\css\img\title_bg_end.gif" />
+    <Content Include="Views\style\css\img\title_bg_head.gif" />
+    <Content Include="Views\style\css\index_1.css" />
+    <Content Include="Views\style\images\baizhuoxia.jpg" />
+    <Content Include="Views\style\images\func20001.gif" />
+    <Content Include="Views\style\images\Header_back.gif" />
+    <Content Include="Views\style\images\Header_forward.gif" />
+    <Content Include="Views\style\images\Header_refresh.gif" />
+    <Content Include="Views\style\images\help2.gif" />
+    <Content Include="Views\style\images\img\menu_arrow_single.gif" />
+    <Content Include="Views\style\images\img\menu_btn_bg.gif" />
+    <Content Include="Views\style\images\img\top_head1_bg.gif" />
+    <Content Include="Views\style\images\img\top_head2_bg.gif" />
+    <Content Include="Views\style\images\info.gif" />
+    <Content Include="Views\style\images\item_point.gif" />
+    <Content Include="Views\style\images\logout.gif" />
+    <Content Include="Views\style\images\title_arrow.gif" />
+    <Content Include="Views\style\images\user.gif" />
+    <Content Include="Views\style\images\version.gif" />
+    <Content Include="Views\style\js\jquery.js" />
+    <Content Include="Views\style\js\page_common.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\OrderLists\Create.cshtml" />
+    <Content Include="Views\OrderLists\Delete.cshtml" />
+    <Content Include="Views\OrderLists\Details.cshtml" />
+    <Content Include="Views\OrderLists\Edit.cshtml" />
+    <Content Include="Views\OrderLists\Index.cshtml" />
+    <Content Include="Views\Orders\Index2.cshtml" />
+    <Content Include="Views\FoodTables\CreateTable.cshtml" />
+    <Content Include="Views\FoodTables\IndexTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="TableTxt\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006251436125_Q.resx">
+      <DependentUpon>202006251436125_Q.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50581</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44316/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

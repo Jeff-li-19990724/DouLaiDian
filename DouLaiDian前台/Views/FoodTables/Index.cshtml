@@ -1,0 +1,129 @@
+﻿@model IEnumerable<HT.FoodTable>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../style/js/jquery.js"></script>
+<script type="text/javascript" src="../style/js/page_common.js"></script>
+<link href="../style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../style/css/index_1.css" />
+<p>
+
+</p>
+<div id="TitleArea">
+    <div id="TitleArea_Head"></div>
+    <div id="TitleArea_Title">
+        <div id="TitleArea_Title_Content">
+            <img border="0" width="13" height="13" src="../style/images/title_arrow.gif" /> 餐桌列表
+        </div>
+    </div>
+    <div id="TitleArea_End"></div>
+</div>
+
+
+<!-- 过滤条件 -->
+<div id="QueryArea" style="float:left">
+    @using (Html.BeginForm("Index", "FoodTables", FormMethod.Post))
+    {
+        <input type="hidden" name="method" value="search">
+        <input type="text" name="TableName" title="请输入餐桌名称">
+        <input type="submit" value="餐桌查询">
+    }
+    @using (Html.BeginForm("IndexTable", "FoodTables", FormMethod.Get))
+    {
+        <input type="datetime-local" name="Time" class="InputStyle" required />
+        <input type="submit" value=" 查看预定情况">
+    }
+</div>
+<div id="MainArea">
+    <table class="MainArea_Content" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr align="center" valign="middle" id="TableTitle">
+                <th>
+                    @Html.DisplayNameFor(model => model.TableName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TableState)
+                </th>
+                <th>
+                    今日最晚预定时间
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody id="TableData">
+            @foreach (var item in Model)
+            {
+                <tr class="TableDetail1">
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.TableName)
+                    </td>
+                    <td align="center">
+                        @Html.DisplayFor(modelItem => item.TableState)
+                    </td>
+                    <td align="center">
+                        @if (item.TableState == "占用")
+                        {
+                            <span>正在使用</span>
+                        }
+                        else
+                        {
+                            try
+                            {
+                                bool Y=true;
+                                foreach (var i in ViewBag.Grid)
+                                {
+                                    Y = true;
+                                    if (item.TableName == i.TableName)
+                                    {
+                                        Y = false;
+                                        @i.Time;
+                                        break;
+                                    }
+
+                                }
+                                if(Y==true)
+                                {
+                                    <span>今日尚未预定</span>
+                                }
+                            }
+                            catch
+                            {
+                                
+                            }
+                            @*@Html.DisplayFor(modelItem => item.DateOut)*@
+                        }
+                    </td>
+                    <td align="center">
+                        @* @Html.ActionLink("退桌", "Edit", "FoodTables", new { id = item.TableID }, new { @class = "FunctionButton" })*@
+
+                        @if (item.TableState == "占用")
+                        {
+                            @Html.ActionLink("退桌", "Edit", "FoodTables", new { id = item.TableID }, new { @class = "FunctionButton" })
+
+                        }
+                        @if (item.TableState == "空闲")
+                        {
+                            @*@Html.ActionLink("预定", "Edit", "FoodTables", new { id = item.TableID }, new { @class = "FunctionButton" })*@
+                            @Html.ActionLink("立即占用", "EditZY", "FoodTables", new { id = item.TableID }, new { @class = "FunctionButton" })
+                        }
+                        @Html.ActionLink("删除", "DeleteConfirmed", "FoodTables", new { id = item.TableID }, new { @class = "FunctionButton", onclick = "return confirm('确认删除？')" })
+                        @Html.ActionLink("预定", "CreateTable", "FoodTables", new { Tablename = item.TableName }, new { @class = "FunctionButton" })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div id="TableTail" align="center">
+        @Html.ActionLink("添加", "Create", "FoodTables", new { @class = "FunctionButton" })
+
+
+        @* <div class="FunctionButton"><a href="saveBoard.html">添加</a></div>*@
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model HT.FoodTable
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2></h2>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../style/js/jquery.js"></script>
+<script type="text/javascript" src="../style/js/page_common.js"></script>
+<link href="../style/css/common_style_blue.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../style/css/index_1.css" />
+<script type="text/javascript">
+    //function openWin() {
+    //    window.open('common_page_list.html');
+    //    this.close();
+    //}
+</script>
+<div id="TitleArea">
+    <div id="TitleArea_Head"></div>
+    <div id="TitleArea_Title">
+        <div id="TitleArea_Title_Content">
+            <img border="0" width="13" height="13" src="../style/images/title_arrow.gif" />  添加新桌
+        </div>
+    </div>
+    <div id="TitleArea_End"></div>
+</div>
+<div id="MainArea">
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @*<h4>FoodTable</h4>*@
+
+            <div class="ItemBlock_Title">
+                <img width="4" height="7" border="0" src="style/images/item_point.gif"> 新桌信息&nbsp;
+            </div>
+            <div class="ItemBlockBorder">
+                <div class="ItemBlock">
+                    <div class="ItemBlock2">
+                        <table cellpadding="0" cellspacing="0" class="mainForm">
+                            <tr>
+
+                                <td width="80px">新桌名字</td>
+                                <td><input type="text" name="TableName" class="InputStyle" required />*</td>
+                                <td>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="添加" class="FunctionButton" style="height:auto" />
+                                            <a href="/FoodTables" value="返回" class="FunctionButton">返回</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+<div>
+
+</div>
